@@ -62,3 +62,6 @@ This structure keeps shared values centralized. A color, spacing value, or typog
 Please do not install this skill. tbh it makes no sense since it is a personal skill.
 You can navigate your agent to this repo, and ask it to help you to build your own design-skill using mine as an example.
 
+## License
+
+Licensed under the [MIT License](LICENSE). Commercial and non-commercial use, modification, and distribution are permitted under its terms.

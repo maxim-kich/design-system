@@ -9,6 +9,26 @@
 - Scale dense ASCII down only while individual characters remain legible.
 - Never stretch ASCII disproportionately.
 
+### ASCII title example
+
+Use block-character lettering for a short, prominent display heading. Keep the
+plain-text title as its accessible name and hide the character art itself so it
+is not read one symbol at a time.
+
+```html
+<h1 class="ascii-visual ascii-title" aria-label="Maxim"><span aria-hidden="true">███╗   ███╗  █████╗  ██╗  ██╗ ██╗ ███╗   ███╗
+████╗ ████║ ██╔══██╗ ╚██╗██╔╝ ██║ ████╗ ████║
+██╔████╔██║ ███████║  ╚███╔╝  ██║ ██╔████╔██║
+██║╚██╔╝██║ ██╔══██║  ██╔██╗  ██║ ██║╚██╔╝██║
+██║ ╚═╝ ██║ ██║  ██║ ██╔╝ ██╗ ██║ ██║ ╚═╝ ██║
+╚═╝     ╚═╝ ╚═╝  ╚═╝ ╚═╝  ╚═╝ ╚═╝ ╚═╝     ╚═╝</span></h1>
+```
+
+For a compound title, split the name, surname, and role into separate blocks so
+their scale and wrapping can be controlled independently. Keep live text on
+larger screens; when a block no longer fits legibly, swap it for a matching SVG
+asset instead of squeezing or distorting the characters.
+
 ```css
 .ascii-visual {
   color: transparent;
@@ -17,9 +37,22 @@
     var(--color-visual-gradient-start),
     var(--color-visual-gradient-end)
   );
+  -webkit-background-clip: text;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
   font: 600 0.65rem/1.1 var(--font-mono);
   white-space: pre;
+}
+
+.ascii-title {
+  margin: 0;
+  display: block;
+  font: 600 0.9rem/1.1 var(--font-mono);
+  white-space: pre;
+}
+
+.ascii-title--subtitle {
+  font-size: 0.45em;
 }
 ```
 
